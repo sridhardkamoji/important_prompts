@@ -51,34 +51,37 @@ Step 2: Analyze the summary and identify:
 - Any **omissions** of critical points that distort the meaning or intent of the original
 - Whether the **logical flow** and structure of the source have been preserved
 
-Step 3: Produce a detailed factuality report with the following format:
+Step 3: Produce a detailed factuality report in the following **JSON format**:
 
+```json
+{
+  "faithful_summary": "<Yes or No>",
+  "hallucinations_detected": [
+    "<Sentence or phrase in the summary not supported by the source>",
+    "<Another unsupported statement>"
+  ],
+  "misrepresented_facts_or_numbers": [
+    {
+      "summary_statement": "<The incorrect sentence or claim>",
+      "issue": "<Explanation of the factual/numerical mismatch>",
+      "source_reference": "<Quote or explanation from the source>"
+    }
+  ],
+  "missing_critical_information": [
+    "<Key point omitted from the summary>",
+    "<Another missing fact>"
+  ],
+  "structural_and_logical_issues": "<Explain if the summary preserves the structure and logic of the original content>",
+  "overall_assessment": {
+    "score": <1-10>,
+    "justification": "<Why this score was given>"
+  },
+  "suggested_improvements": [
+    "<Suggestion to improve factual accuracy or completeness>",
+    "<Another suggestion>"
+  ]
+}
+```
 ---
-
-**Factual Consistency Report**
-
-1. **Faithful Summary?**  
-   - [Yes/No]
-
-2. **Hallucinations Detected:**  
-   - [List any sentences or phrases in the summary that are not present or supported in the source content]
-
-3. **Misrepresented Facts or Numbers:**  
-   - [List and explain any factual errors or numerical mismatches]
-
-4. **Missing Critical Information:**  
-   - [List important omissions that impact summary integrity]
-
-5. **Structural and Logical Issues:**  
-   - [Comment on whether the summary preserves the structure and reasoning of the source]
-
-6. **Overall Assessment (1-10):**  
-   - [Score with justification]
-
-7. **Suggested Improvements (if needed):**  
-   - [Recommendations to improve the summary's accuracy]
-
----
-
 Be objective, precise, and use exact quotes or page numbers from the source to support your analysis. Your goal is to ensure **zero hallucinations and high factual alignment**.
 """
